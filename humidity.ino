@@ -52,7 +52,7 @@ void setup() {
 
 void loop() {
   // Wait a few seconds between measurements:
-  delay(2000);
+  delay(10000);
 
   unsigned long currentMillis = millis();
 
@@ -67,9 +67,11 @@ void loop() {
     else if (readSoil() > 175) {
       //digitalWrite(ledPin,LOW);
     }
-    Serial.print("Soil Moisture = ");
+    //Serial.print("Soil Moisture = ");
     ////get soil moisture value from the function below and print it
-    Serial.println(readSoil());
+//    Serial.print(readSoil());
+//    Serial.print(','); 
+      Serial.println(readSoil());
 
     previousMillis = currentMillis;
 
@@ -98,7 +100,7 @@ void loop() {
   //polkadot plants prefer temperature between 70 & 80 and humidity above 50%)
 
 if((readSoil() >= 50 && readSoil() <= 300) && (f >= 69 && f <= 75)){
-    Serial.println("above 180 and less than 300 moisture");
+   // Serial.println("above 180 and less than 300 moisture");
     RGB_color(0, 255, 0); // green
 }
 
@@ -118,26 +120,26 @@ else{
 
 
 
-  Serial.print("Soil Moisture: ");
+  //Serial.print("Soil Moisture: ");
 
-  Serial.println(readSoil());
-  Serial.print("Humidity: ");
-  Serial.print(humidity);
-  Serial.print(" % ");
-  Serial.print("Temperature: ");
-  Serial.print(t);
-  Serial.print(" \xC2\xB0");
-  Serial.print("C | ");
-  Serial.print(f);
-  Serial.print(" \xC2\xB0");
-  Serial.print("F ");
-  Serial.print("Heat index: ");
-  Serial.print(hic);
-  Serial.print(" \xC2\xB0");
-  Serial.print("C | ");
-  Serial.print(hif);
-  Serial.print(" \xC2\xB0");
-  Serial.println("F");
+ // Serial.println(readSoil());
+//  Serial.print("Humidity: ");
+//  Serial.print(humidity);
+//  Serial.print(" % ");
+//  Serial.print("Temperature: ");
+//  Serial.print(t);
+//  Serial.print(" \xC2\xB0");
+//  Serial.print("C | ");
+//  Serial.print(f);
+//  Serial.print(" \xC2\xB0");
+//  Serial.print("F ");
+//  Serial.print("Heat index: ");
+//  Serial.print(hic);
+//  Serial.print(" \xC2\xB0");
+//  Serial.print("C | ");
+//  Serial.print(hif);
+//  Serial.print(" \xC2\xB0");
+//  Serial.println("F");
 
   
 //  RGB_color(255, 0, 0); // Red
@@ -199,7 +201,7 @@ int calcAvg() {
 
 void RGB_color(int red_light_value, int green_light_value, int blue_light_value)
 {
-  Serial.println("reading colors");
+  //Serial.println("reading colors");
   analogWrite(redPin, red_light_value);
   analogWrite(greenPin, green_light_value);
   analogWrite(bluePin, blue_light_value);
